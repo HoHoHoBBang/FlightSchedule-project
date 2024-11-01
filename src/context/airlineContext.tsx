@@ -137,7 +137,7 @@ export const AirlineContextProvider = ({ children }: Props) => {
     if (airCode !== "ICN") {
       try {
         const response = await fetch(
-          `http://localhost:8080/api/flight-status?schStTime=${stTime}&schEdTime=${edTime}&schLineType=${lineType}&schIOType=${ioType}&schAirCode=${airCode}&pageNo=${pageNumber}`,
+          `https://port-0-expressserver-m2y79lwnb9061505.sel4.cloudtype.app/api/flight-status?schStTime=${stTime}&schEdTime=${edTime}&schLineType=${lineType}&schIOType=${ioType}&schAirCode=${airCode}&pageNo=${pageNumber}`,
         );
         const data = await response.json();
         const fetchData = data.response.body.items.item;
@@ -158,7 +158,7 @@ export const AirlineContextProvider = ({ children }: Props) => {
     } else if (airCode === "ICN") {
       try {
         const response = await fetch(
-          `http://localhost:8080/api/flight-status?schStTime=${stTime}&schEdTime=${edTime}&schAirCode=${airCode}&schIOType=${ioType}`,
+          `https://port-0-expressserver-m2y79lwnb9061505.sel4.cloudtype.app/api/flight-status?schStTime=${stTime}&schEdTime=${edTime}&schAirCode=${airCode}&schIOType=${ioType}`,
         );
         const data = await response.json();
         const filteredData = data.response.body.items.filter(
